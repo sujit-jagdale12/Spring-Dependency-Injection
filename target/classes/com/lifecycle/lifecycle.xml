@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- This annotation enables all the annotation in jee -->
+	<context:annotation-config />
+
+	<!-- This enable only postconstruct and predestroy annotation 
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/> -->
+
+	<bean class="com.lifecycle.Book" name="book1" p:bookId="1"
+		p:bookName="Mahabharat" p:price="250" init-method="initialization"
+		destroy-method="destroying" />
+
+	<bean class="com.lifecycle.Note" name="note">
+		<property name="price" value="100" />
+		<property name="color" value="Black" />
+	</bean>
+	<bean class="com.lifecycle.Pen" name="pen" p:pname="Trimax"
+		p:price="55" />
+</beans>

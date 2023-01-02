@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean class="com.autowirexml.Address" name="address">
+		<property name="street" value="Chatrapati" />
+		<property name="city" value="Pune" />
+		<property name="pinCode" value="411052" />
+	</bean>
+	
+	<!-- <bean class="com.autowirexml.Student" name="stud" p:sid="1" p:sname="Sujit" 
+		autowire="byName"/> -->
+
+	<!-- <bean class="com.autowirexml.Student" name="stud" p:sid="2" p:sname="Daya" 
+		autowire="byType"/> -->
+
+	<bean class="com.autowirexml.Student" name="stud" c:sid="101"
+		c:sname="Sujit" autowire="constructor" />
+
+</beans>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+	xmlns:util="http://www.springframework.org/schema/util"
+
+
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        ">
+	<context:annotation-config />
+	<!-- Standalone Collections -->
+	<util:list list-class="java.util.Vector" id="myList">
+		<value>Sujit</value>
+		<value>Pankaj</value>
+		<value>Daya</value>
+		<value>nana</value>
+		<value>Bala</value>
+	</util:list>
+
+	<util:set set-class="java.util.HashSet" id="mySet">
+		<value>Hiwara</value>
+		<value>Kunjigad</value>
+		<value>Osmanabad</value>
+		<value>Latur</value>
+		<value>Nagar</value>
+	</util:set>
+
+	<util:map map-class="java.util.TreeMap" id="myMap">
+		<entry key="5" value="Carrom"></entry>
+		<entry key="2" value="Ludo"></entry>
+		<entry key="4" value="Boxing"></entry>
+		<entry key="3" value="Chess"></entry>
+		<entry key="1" value="Cricket"></entry>
+
+	</util:map>
+	<util:properties id="dbConnection">
+		<prop key="driver">com.mysql.cj.jdbc.Driver</prop>
+		<prop key="url">jdbc:mysql://localhost:3306/Spring</prop>
+		<prop key="username">root</prop>
+		<prop key="password">root</prop>
+	</util:properties>
+
+	<bean class="com.standalone.collections.Friend" name="frd">
+		<property name="names">
+			<ref bean="myList" />
+		</property>
+		<property name="cities" ref="mySet" />
+		<property name="hobbies" ref="myMap"></property>
+		<property name="properties" ref="dbConnection"></property>
+
+	</bean>
+
+</beans>
